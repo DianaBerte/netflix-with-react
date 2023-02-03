@@ -22,7 +22,7 @@ fetchMovies = async () => {
             movie: movieData,
         })
     } else {
-        console.log("error");
+        alert("Oh no, an error occurred :(");
     } 
 } catch (error) {
     console.log(error);

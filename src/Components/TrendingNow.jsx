@@ -15,7 +15,7 @@ class TrendingNow extends Component {
     fetchMovies = async () => {
         try {
             let response = await fetch(this.state.url + 
-                'harry%20potter'
+                'harry%20pott'
             );
             if (response.ok) {
                 let data = await response.json();
@@ -27,7 +27,7 @@ class TrendingNow extends Component {
                     movie: movieData,
                 })
             } else {
-                console.log("error");
+                alert("Oh no, an error occurred :( ");
             }
         } catch (error) {
             console.log(error);
