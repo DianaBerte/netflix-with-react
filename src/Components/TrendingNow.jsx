@@ -15,7 +15,7 @@ class TrendingNow extends Component {
     fetchMovies = async () => {
         try {
             let response = await fetch(this.state.url + 
-                'harry%20pott'
+                'harry%20potter'
             );
             if (response.ok) {
                 let data = await response.json();
