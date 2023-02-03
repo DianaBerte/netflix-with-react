@@ -1,8 +1,35 @@
 import { Component } from "react";
 import { Carousel } from "react-bootstrap"; 
+// import { Component } from "react";
+
 //http://www.omdbapi.com/?apikey=921138b3&s=harry%20potter
 
 class TrendingNow extends Component {
+    state = {
+        movie: []
+    }
+
+    componentDidMount() {
+        this.fetchMovies();
+    }
+
+    fetchMovies = async (movie) => {
+        try {
+            let response = await fetch(
+                'http://www.omdbapi.com/?apikey=921138b3&s=harry%20potter'
+            );
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+            } else {
+                console.log("error");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    
     render() {
         return(
             <>
@@ -10,7 +37,7 @@ class TrendingNow extends Component {
             <Carousel.Item>
     <img
       className="d-block w-100"
-      src={}
+      src="holder.js/800x400?text=Third slide&bg=20232a"
       alt="First slide"
     />
     <Carousel.Caption>
