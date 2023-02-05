@@ -37,7 +37,7 @@ class TrendingNow extends Component {
             }
         } catch (error) {
             console.log(error);
-            this.setStatet({
+            this.setState({
                 isLoading: false,
                 isError: true,
             })
