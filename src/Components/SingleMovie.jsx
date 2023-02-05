@@ -12,7 +12,6 @@ class SingleMovie extends Component {
           alt="movie title"
           className="h-20 w-20"
         />
-        
       </>
     );
   }
