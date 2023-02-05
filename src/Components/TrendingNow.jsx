@@ -2,21 +2,20 @@ import { Component } from "react";
 import { Carousel } from "react-bootstrap"; 
 import SingleMovie from "./SingleMovie";
 
-//http://www.omdbapi.com/?apikey=921138b3&s=harry%20potter
+
 
 class TrendingNow extends Component {
     state = {
         movie: [],
-        url: "http://www.omdbapi.com/?apikey=921138b3&s=",
+        url: "",
+        title: "",
     }
 
    
 
-    fetchMovies = async () => {
+    fetchMovies = async (props) => {
         try {
-            let response = await fetch(this.state.url + 
-                'harry%20potter'
-            );
+            let response = await fetch(this.props.url + this.props.query);
             if (response.ok) {
                 let data = await response.json();
                 console.log(data);
@@ -42,6 +41,7 @@ class TrendingNow extends Component {
     render() {
         return(
             <>
+            <h5>{this.props.title}</h5>
             <Carousel>
                 {this.state.movie.map((movieObject) => {
                     return (

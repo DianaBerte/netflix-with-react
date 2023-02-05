@@ -5,13 +5,14 @@ import SingleMovie from "./SingleMovie";
 class WatchItAgain extends Component {
     state = {
         movie: [],
-        url: "http://www.omdbapi.com/?apikey=921138b3&s=",
+        url: "",
+        title: "",
     }
 
 
-fetchMovies = async () => {
+fetchMovies = async (props) => {
     try {
-        let response = await fetch(this.state.url + 'the%20lord%20of%20the%20rings');
+        let response = await fetch(this.props.url + this.props.query);
     if (response.ok) {
         let data = await response.json();
         console.log(data);
@@ -35,6 +36,8 @@ fetchMovies = async () => {
     render() {
         return(
             <>
+            <br />
+            <h5>{this.props.title}</h5>
             <Carousel>
                 {this.state.movie.map((movieObject) => {
                     return (
