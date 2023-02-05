@@ -5,7 +5,7 @@ class SingleMovie extends Component {
     return (
       <>
       <br />
-        <h5>{this.props.movieObject.Title}</h5>
+        <h6>{this.props.movieObject.Title}</h6>
         <img
           key={this.props.movieObject.imdbId}
           src={this.props.movieObject.Poster}
