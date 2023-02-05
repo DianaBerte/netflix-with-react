@@ -3,19 +3,20 @@ import { Carousel } from "react-bootstrap";
 import { Spinner, Alert } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
+const url = "http://www.omdbapi.com/?apikey=921138b3&s=";
+
 class WatchItAgain extends Component {
     state = {
         movie: [],
-        url: "",
         title: "",
         isLoading: true,
         isError: false,
     }
 
 
-fetchMovies = async (props) => {
+fetchMovies = async () => {
     try {
-        let response = await fetch(this.props.url + this.props.query);
+        let response = await fetch(url + this.props.query);
     if (response.ok) {
         let data = await response.json();
         console.log(data);

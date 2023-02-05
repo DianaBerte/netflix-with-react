@@ -1,7 +1,7 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Form, FormControl } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-const { Component } = require("react");
+import { Component } from "react";
 
 
 class MyNetflixNavbar extends Component {

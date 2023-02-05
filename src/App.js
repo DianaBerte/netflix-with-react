@@ -8,16 +8,8 @@ function App() {
   return (
     <div className="App">
       <MyNetflixNavbar />
-      <TrendingNow
-        url="http://www.omdbapi.com/?apikey=921138b3&s="
-        title="Trending Now"
-        query="The Matrix"
-      />
-      <WatchItAgain
-        url="http://www.omdbapi.com/?apikey=921138b3&s="
-        title="Watch it Again"
-        query="Harry Potter"
-      />
+      <TrendingNow title="Trending Now" query="The Matrix" />
+      <WatchItAgain title="Watch it Again" query="The Lord of the Rings" />
     </div>
   );
 }
