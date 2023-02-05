@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Carousel } from "react-bootstrap"; 
+import { Spinner, Alert } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 
@@ -9,6 +10,8 @@ class TrendingNow extends Component {
         movie: [],
         url: "",
         title: "",
+        isLoading: true,
+        isError: false,
     }
 
    
@@ -24,12 +27,20 @@ class TrendingNow extends Component {
                 this.setState({
                     ...this.state,
                     movie: movieData,
+                    isLoading: false,
                 })
             } else {
-                alert("Oh no, an error occurred :( ");
+                this.setState({
+                    isLoading: false,
+                    isError: true,
+                })
             }
         } catch (error) {
             console.log(error);
+            this.setStatet({
+                isLoading: false,
+                isError: true,
+            })
         }
     };
 
@@ -42,6 +53,8 @@ class TrendingNow extends Component {
         return(
             <>
             <h5>{this.props.title}</h5>
+            {this.state.isLoading && (<Spinner animation="border" variant="success" /> )}
+            {this.state.isError && ( <Alert variant="danger">Oh no, error occurred 😢</Alert>)}
             <Carousel>
                 {this.state.movie.map((movieObject) => {
                     return (
