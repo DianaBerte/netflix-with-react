@@ -3,14 +3,33 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNetflixNavbar from "./Components/MyNetflixNavbar";
 import TrendingNow from "./Components/TrendingNow";
 import WatchItAgain from "./Components/WatchItAgain";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TVShows from "./Components/TVShows";
 
 function App() {
   return (
-    <div className="App">
-      <MyNetflixNavbar />
-      <TrendingNow title="Trending Now" query="The Matrix" />
-      <WatchItAgain title="Watch it Again" query="The Lord of the Rings" />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <MyNetflixNavbar />
+        <Routes>
+          <Route
+            element={
+              <>
+                <TrendingNow title="Trending Now" query="The Matrix" />{" "}
+                <WatchItAgain
+                  title="Watch it Again"
+                  query="The Lord of the Rings"
+                />{" "}
+              </>
+            }
+            path="/"
+          />
+        </Routes>
+        <Routes>
+          <Route element={<TVShows />} path="/tv-shows" />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
