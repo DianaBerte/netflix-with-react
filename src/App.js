@@ -5,6 +5,7 @@ import TrendingNow from "./Components/TrendingNow";
 import WatchItAgain from "./Components/WatchItAgain";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TVShows from "./Components/TVShows";
+import MovieDetails from "./Components/MovieDetails";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Routes>
         <Routes>
           <Route element={<TVShows />} path="/tv-shows" />
+        </Routes>
+        <Routes>
+          <Route element={<MovieDetails />} path="/movie-details/:movieId" />
         </Routes>
       </div>
     </BrowserRouter>
