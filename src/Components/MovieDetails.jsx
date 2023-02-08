@@ -10,17 +10,17 @@ const MovieDetails = () => {
 
     console.log("the id of the chosen movie is: ", params.movieId)
 
-    const [movieObj, setMovieObj] = useState(null);
+    const [movie, setMovie] = useState(null);
 
-    const fetchMovies = async () => {
+    const fetchMovie = async () => {
       try {
         let response = await fetch(
-          `http://www.omdbapi.com/?apikey=921138b3&i=${params.movieId}`
+          `http://www.omdbapi.com/?apikey=921138b3&s=${params.movieId}`
         );
         if (response.ok) {
-          const movieData = await response.json();
-          setMovieObj(movieData.Search);
-          console.log("Movie object:", movieObj);
+          const data = await response.json();
+          setMovie(data);
+          console.log("Movie object:", movie);
         } else {
           alert("error");
         }
@@ -29,16 +29,16 @@ const MovieDetails = () => {
       }
     };
 
-    useEffect(
-        () => {
-            fetchMovies()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []
-    )
+    useEffect(() => {
+      fetchMovie();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [params.movieId]);
 
     return(
         <div>
             <h1>Movie Details</h1>
+            <h2>{movie.Title}</h2>
+            <img src={movie.Poster} alt="movie"/>
             <Link to={'/movie-details/' + params.movieId }>
             </Link>
         </div>
