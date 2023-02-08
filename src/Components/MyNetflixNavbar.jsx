@@ -2,6 +2,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Form, FormControl } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 
 class MyNetflixNavbar extends Component {
@@ -14,7 +15,9 @@ class MyNetflixNavbar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                         <Nav.Link style={{ color: 'whitesmoke' }} href="#home">Home</Nav.Link>
-                        <Nav.Link style={{ color: 'whitesmoke' }} href="#link">TV Shows</Nav.Link>
+                        <Link to="/tv-shows">
+                        <div className="nav-link" style={{ color: 'whitesmoke' }}>TV Shows</div>
+                        </Link>
                         <Nav.Link style={{ color: 'whitesmoke' }} href="#link">Movies</Nav.Link>
                         <Nav.Link style={{ color: 'whitesmoke' }} href="#link">Recently Added</Nav.Link>
                         <Nav.Link style={{ color: 'whitesmoke' }} href="#link">My List</Nav.Link>
