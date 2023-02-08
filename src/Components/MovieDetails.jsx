@@ -21,11 +21,11 @@ const MovieDetails = () => {
           }
         );
         if (response.ok) {
-          let moviesDataRaw = await response.json();
-          setMovieObj(moviesDataRaw.Search);
+          const movieData = await response.json();
+          setMovieObj(movieData.Search);
           console.log("Movie object:", movieObj);
         } else {
-          alert("Error");
+          alert("error");
         }
       } catch (error) {
         console.log(error);
