@@ -27,7 +27,10 @@ function App() {
           />
         </Routes>
         <Routes>
-          <Route element={<TVShows />} path="/tv-shows" />
+          <Route
+            element={<TVShows movieName={"Harry Potter"} />}
+            path="/tv-shows"
+          />
         </Routes>
         <Routes>
           <Route element={<MovieDetails />} path="/movie-details/:movieId" />

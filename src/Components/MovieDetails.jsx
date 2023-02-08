@@ -15,10 +15,7 @@ const MovieDetails = () => {
     const fetchMovies = async () => {
       try {
         let response = await fetch(
-          "http://www.omdbapi.com/?apikey=921138b3&i=tt0241527" + params.movieId,
-          {
-            method: "GET",
-          }
+          `http://www.omdbapi.com/?apikey=921138b3&i=${params.movieId}`
         );
         if (response.ok) {
           const movieData = await response.json();

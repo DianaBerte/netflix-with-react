@@ -1,9 +1,30 @@
 import { Component } from "react";
 
 class TVShows extends Component {
+
+    fetchMovies = async () => {
+        try {
+        let response = await fetch('http://www.omdbapi.com/?apikey=921138b3&s=' + this.props.movieName)
+        if(response.ok){
+            let data = await response.json();
+            console.log(data);
+        }
+        
+    else {
+    }
+
+    } catch(error){
+        console.log(error)
+    }
+}
+
+componentDidMount(){this.fetchMovies()}
+
     render() {
         return(
-            <><h1>TV Shows</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nihil quis voluptate minus commodi harum fugit tempore assumenda optio, explicabo error, molestias voluptas animi necessitatibus recusandae. Nulla cumque facilis nobis.</p></>
+            <div>
+
+            </div>
         )
     }
 }
