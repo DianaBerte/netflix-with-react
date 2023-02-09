@@ -15,7 +15,7 @@ const MovieDetails = () => {
     const fetchMovie = async () => {
       try {
         let response = await fetch(
-          `http://www.omdbapi.com/?apikey=921138b3&s=${params.movieId}`
+          `http://www.omdbapi.com/?apikey=921138b3&i=${params.movieId}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -37,8 +37,10 @@ const MovieDetails = () => {
     return(
         <div>
             <h1>Movie Details</h1>
-            <h2>{movie.Title}</h2>
-            <img src={movie.Poster} alt="movie"/>
+            {movie && 
+            <>           <h2>{movie.Title}</h2>
+            <img src={movie.Poster} alt="movie"/> </> }
+
             <Link to={'/movie-details/' + params.movieId }>
             </Link>
         </div>
