@@ -11,8 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <MyNetflixNavbar subtitle="ciao" />
-        <MyNetflixNavbar subtitle="buongiorno" />
+        <MyNetflixNavbar subtitle="Type..." />
+        <MyNetflixNavbar subtitle="Type..." />
         <WatchItAgain query="Harry Potter" />
         <Routes>
           <Route
